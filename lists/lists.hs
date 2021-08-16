@@ -38,3 +38,26 @@ imprimirLista [] = return ()
 imprimirLista (x : xs) = do
   putStrLn (pegarNome x ++ " - " ++ show (pegarIdade x))
   imprimirLista xs
+
+-- tamanho da lista
+tamanhoDaListaDePessoas :: Int
+tamanhoDaListaDePessoas = length lista
+
+-- exemplo de concatenar manual
+concatenar :: [a] -> [a] -> [a]
+concatenar [] y = y
+concatenar x [] = x
+concatenar (x : xs) y = x : concatenar xs y
+
+
+type Registro = Pessoa
+
+type DB = [Registro]
+
+db :: DB
+db = [("Paulo", 23), ("Bruna", 23)]
+
+pegarNomes :: DB -> [String]
+pegarNomes [] = []
+-- Desmembrar o head da lista de tuplas em um tupla
+pegarNomes ((nome, _) : xs) = nome : pegarNomes xs

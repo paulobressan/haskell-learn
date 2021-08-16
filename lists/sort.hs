@@ -1,4 +1,30 @@
--- Ordenar lista de inteiros crescentemente
+-- Ordenar lista USANDO A FUNÇÃO sort DO PACOTE DATA.LIST
+import Data.List (sort)
+
+type Nome = String
+
+type Linguagem = String
+
+-- Quando tiver uma lista de programadores e queremos ordenar com a função sort, precisamos usar o Ord e o Eq e o Show é para printar no console
+data Pessoa = Programador Nome Linguagem
+  deriving (Ord, Eq, Show)
+
+programador1 :: Pessoa
+programador1 = Programador "Paulo" "Haskell"
+
+programador2 :: Pessoa
+programador2 = Programador "Bruna" "JS"
+
+programador3 :: Pessoa
+programador3 = Programador "Rita" "Python"
+
+programadores :: [Pessoa]
+programadores = [programador1, programador2, programador3]
+
+ordenarComAFuncaoSort :: [Pessoa]
+ordenarComAFuncaoSort = sort programadores
+
+-- Ordenar lista de inteiros crescentemente. CRIANDO FUNÇÃO MANUALMENTE
 
 lista :: [Int]
 lista = [5, 2, 10, 1, 9]
@@ -6,6 +32,7 @@ lista = [5, 2, 10, 1, 9]
 -- Para pegar o menor valor, vamos criar uma recursão até validando se o x é menor que todos os valores da lista
 -- se não vamos criar novamente a recursão sem o head validando a posição 2 da lista e assim por diante
 pegarMenorElemento :: [Int] -> Int
+pegarMenorElemento [] = 0
 pegarMenorElemento [x] = x
 pegarMenorElemento (x : xs)
   | x < pegarMenorElemento xs = x

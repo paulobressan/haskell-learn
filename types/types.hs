@@ -1,7 +1,9 @@
 -- Criando tipos de dados
 
 type Nome = String
+
 type Idade = Int
+
 type Linguagem = String
 
 -- Criando uma estrutura de dados com typlas e os tipos
